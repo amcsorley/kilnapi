@@ -17,6 +17,11 @@ port = config.get('defaults', 'port')
 public_port = config.get('defaults', 'public_port')
 apikeyfile = config.get('defaults', 'apikeyfile')
 
+# Raspberry Pi hardware SPI configuration.
+SPI_PORT   = 0
+SPI_DEVICE = 0
+sensor = MAX31855.MAX31855(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
+
 class Help(RequestHandler):
     def get(self):
         """Print available functions"""
@@ -33,11 +38,6 @@ def kiln_tempf():
     # Define a function to convert celsius to fahrenheit.
     def c_to_f(c):
         return c * 9.0 / 5.0 + 32.0
-
-    # Raspberry Pi hardware SPI configuration.
-    SPI_PORT   = 0
-    SPI_DEVICE = 0
-    sensor = MAX31855.MAX31855(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
 
     temp = sensor.readTempC()
     output = '{1:0.2F}'.format(temp, c_to_f(temp))
