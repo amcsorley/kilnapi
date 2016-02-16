@@ -18,12 +18,12 @@ Usage
       -h, --help            show this help message and exit
       -d, --daemon          run in the background
       -f, --foreground      run in the foreground
-      -P [PIDFILE], --pidfile [PIDFILE]    pid file for use with service script
+      -P, --pidfile FILE    pid file for use with service script
 
-Start manually:
+Start manually
 
     sudo kilnapi -d
     
-Start with the service script::
+Start with the service script
 
     sudo service kilnapi start
