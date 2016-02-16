@@ -4,6 +4,7 @@
 </head>
 <body bgcolor="black" text="green">
 
+<div id = 'Time'></div>
 <div id = 'kilnTempF'></div>
 
  <script>
@@ -23,7 +24,13 @@
 
   }
 
-  var timeinterval = setInterval(getTempF, 1000);
+  function myTimer() {
+    var d = new Date();
+    document.getElementById("Time").innerHTML = d.toLocaleTimeString();
+  }
+
+  var tempinterval = setInterval(getTempF, 1000);
+  var timeinterval = setInterval(myTimer, 1000);
 
  </script>
 
