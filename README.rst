@@ -5,7 +5,7 @@ An API for controlling a kiln
 
 Install
 -------
-sudo python setup.py install
+    sudo python setup.py install
 
 Usage
 -----
